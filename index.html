@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        div.box{
+            width: 500px;
+            padding: 10px;
+            margin: 100px auto;
+            text-align: center;
+            border: 3px solid #9eccab;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="img/1.jpg" alt="冰棍">
+        <button id="prev">上一张</button>
+		<button id="next">下一张</button>
+    </div>
+    <script type="text/javascript">
+        var prev,next,img,imgarr,index,prevS;
+        img = document.getElementsByTagName("img")[0];
+        imgarr = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+        index = 0;
+        prev = document.getElementById("prev");
+        next = document.getElementById("next");
+        prev.addEventListener("click",prevS);
+        function prevS(){
+            index --;
+            if(index < 0){
+                index = imgarr.length - 1;
+            }
+
+            img.src = imgarr[index];
+        }
+
+        next.addEventListener("click", nextS);
+        function nextS(){
+            index ++;
+            if(index > imgarr.length - 1){
+                index = 0;
+            }
+
+            img.src = imgarr[index];
+        }
+
+
+    </script>
+</body>
+</html>
